@@ -1,0 +1,150 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #94979b, #2a5298);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.game-container {
+    text-align: center;
+    width: 100%;
+}
+
+
+.score-container {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    gap: 2px;
+
+    /* Updated for responsiveness */
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+    backdrop-filter: blur(10px);
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+    width: 90vw; /* Width adjusts to viewport width */
+    max-width: 450px; /* Limit the max size */
+    height: 90vw; /* Maintain square aspect ratio */
+    max-height: 450px;
+    position: relative;
+
+    animation: board-glow 3s infinite alternate; /* Subtle glow animation */
+}
+
+/* Glow Animation */
+@keyframes board-glow {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(50, 200, 250, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.7), 0 0 60px rgba(50, 200, 250, 0.4);
+    }
+}
+
+.snake {
+    background: linear-gradient(90deg, #6aeb6a, #33b735); /* Modern green gradient */
+    border-radius: 10px; /* Rounded corners for a smooth appearance */
+    box-shadow: 0 0 10px #33b735, 0 0 20px rgba(51, 183, 53, 0.5);
+
+    /* Subtle movement animation */
+    animation: snake-pulse 1s infinite alternate;
+}
+
+/* Snake head */
+.head {
+    background: linear-gradient(90deg, #00ff00, #33cc33); /* Brighter gradient for the head */
+    border-radius: 50%; /* Round head */
+    box-shadow: 0 0 15px #33ff33, 0 0 30px rgba(51, 255, 51, 0.5);
+}
+
+/* Pulse Animation for Snake */
+@keyframes snake-pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #33b735, 0 0 20px rgba(51, 183, 53, 0.5);
+    }
+    100% {
+        transform: scale(1.1); /* Slightly enlarges */
+        box-shadow: 0 0 15px #33ff33, 0 0 30px rgba(51, 255, 51, 0.7);
+    }
+}
+
+.food {
+    background: radial-gradient(circle, #ff5722, #e64a19);
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ff5722;
+    animation: pulse 1s infinite;
+}
+
+/* Food Glow Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ff5722;
+    }
+    50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px #ff7043;
+    }
+}
+
+.title {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 800;
+    color: yellow;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; /* Smaller title font size */
+    }
+
+    .score-container {
+        font-size: 16px; /* Adjust score font size */
+    }
+
+    #board {
+        width: 90vw; /* Take up most of the viewport width */
+        height: 90vw; /* Maintain square aspect ratio */
+    }
+
+    .snake {
+        border-radius: 5px; /* Smaller radius for smaller screens */
+    }
+
+    .head {
+        border-radius: 50%; /* Maintain round head */
+    }
+
+    .title {
+        font-size: 14px; /* Smaller text for mobile */
+    }
+}
+/* Styling for Score and HiScore Boxes */
+#scoreBox, #hiscoreBox {
+    font-size: 15px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    color: #f4f4f4; /* Light color for text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6), /* Subtle shadow */
+                 0 0 10px rgba(255, 215, 0, 0.8); /* Glow effect in gold */
+     margin: 10px; /* Spacing between the boxes */
+}
+
+
